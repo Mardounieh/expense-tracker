@@ -6,7 +6,15 @@ const BASE_URL =
 export const storeExpense = async (expenseData) => {
   const response = await axios.post(`${BASE_URL}/expenses.json`, expenseData);
   const id = response.data.name;
-  return id
+  return id;
+};
+
+export const updateExpense = async (id, expenseData) => {
+  axios.put(`${BASE_URL}/expenses/${id}.json`, expenseData);
+};
+
+export const deleteExpense = () => {
+  return axios.delete(`${BASE_URL}/expenses/${id}.json`);
 };
 
 export const getExpenses = async () => {
